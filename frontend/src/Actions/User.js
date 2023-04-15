@@ -14,6 +14,7 @@ export const loginUser = (email, password) => async (dispatch) => {
           "Content-Type": "application/json",
            "Access-Control-Allow-Origin": "*"
         },
+         withCredentials: true,
       }
     );
 
