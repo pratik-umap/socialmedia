@@ -9,19 +9,16 @@ if (process.env.NODE_END !== "production") {
 }
 
 // using middleware
-<<<<<<< HEAD
 app.use(cors())
-=======
->>>>>>> bb994566eab7455e0d31eb6df4ed9a20027d4ec3
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 
 // static file
-app.use(express.static(path.join(__dirname,"../frontend/build")))
+app.use(express.static(path.join(__dirname,"/frontend/build")))
 
 app.get('*',function(req,res) {
-   res.sendFile(path.join(__dirname,"../frontend/build/index.html"))
+   res.sendFile(path.join(__dirname,"/frontend/build/index.html"))
 })
 console.log(__dirname,"../frontend/build/index.html")
 // importing routes
