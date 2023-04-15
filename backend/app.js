@@ -9,7 +9,10 @@ if (process.env.NODE_END !== "production") {
 }
 
 // using middleware
+<<<<<<< HEAD
 app.use(cors())
+=======
+>>>>>>> bb994566eab7455e0d31eb6df4ed9a20027d4ec3
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
