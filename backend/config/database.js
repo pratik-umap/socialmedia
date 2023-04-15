@@ -6,3 +6,4 @@ exports.connectDatabase = () => {
     .then((con) => console.log(`Database Connected: ${con.connection.host}`))
     .catch((err) => console.log(err));
 };
+

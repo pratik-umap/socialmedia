@@ -1,13 +1,11 @@
 import axios from "axios";
 
-const server_api="https://socialmedia-dnx3.onrender.com";
-
 export const likePost = (id) => async (dispatch) => {
   try {
     dispatch({
       type: "likeRequest",
     });
-    const { data } = await axios.get(`${server_api}/api/v1/post/${id}`);
+    const { data } = await axios.get(`/api/v1/post/${id}`);
     dispatch({
       type: "likeSuccess",
       payload: data.message,
@@ -26,7 +24,7 @@ export const addCommentOnPost = (id, comment) => async (dispatch) => {
       type: "addCommentRequest",
     });
     const { data } = await axios.put(
-      `${server_api}/api/v1/post/comment/${id}`,
+      `/api/v1/post/comment/${id}`,
       {
         comment,
       },
@@ -53,7 +51,7 @@ export const deleteCommentOnPost = (id, commentId) => async (dispatch) => {
     dispatch({
       type: "deleteCommentRequest",
     });
-    const { data } = await axios.delete(`${server_api}/api/v1/post/comment/${id}`, {
+    const { data } = await axios.delete(`/api/v1/post/comment/${id}`, {
       data: { commentId },
     });
     dispatch({
@@ -75,7 +73,7 @@ export const createNewPost = (caption, image) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      `${server_api}/api/v1/post/upload`,
+      "/api/v1/post/upload",
       {
         caption,
         image,
@@ -104,7 +102,7 @@ export const updatePost = (caption, id) => async (dispatch) => {
       type: "updateCaptionRequest",
     });
     const { data } = await axios.put(
-      `${server_api}/api/v1/post/${id}`,
+      `/api/v1/post/${id}`,
       {
         caption,
       },
@@ -131,7 +129,7 @@ export const deletePost = (id) => async (dispatch) => {
     dispatch({
       type: "deletePostRequest",
     });
-    const { data } = await axios.delete(`${server_api}/api/v1/post/${id}`);
+    const { data } = await axios.delete(`/api/v1/post/${id}`);
 
     dispatch({
       type: "deletePostSuccess",
