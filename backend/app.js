@@ -10,6 +10,9 @@ if (process.env.NODE_END !== "production") {
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
+app.use(cors({
+  origin: 'https://clever-sfogliatella-1a31e7.netlify.app'
+}));
 
 // importing routes
 const postRoute = require("./routes/post");
