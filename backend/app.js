@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname,"/frontend/build")))
 app.get('*',function(req,res) {
    res.sendFile(path.join(__dirname,"/frontend/build/index.html"))
 })
-console.log(__dirname,"../frontend/build/index.html")
+
 // importing routes
 const postRoute = require("./routes/post");
 const userRoute = require("./routes/user");
