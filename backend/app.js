@@ -7,6 +7,10 @@ if (process.env.NODE_END !== "production") {
 }
 
 // using middleware
+<<<<<<< HEAD
+=======
+app.use(cors({ origin: true }))
+>>>>>>> add8a005cd1b8aa12356b48dc29ba40a1bd122e8
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());

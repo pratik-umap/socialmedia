@@ -11,6 +11,7 @@ export const loginUser = (email, password) => async (dispatch) => {
       {
         headers: {
           "Content-Type": "application/json",
+           "Access-Control-Allow-Origin": "*"
         },
       }
     );
