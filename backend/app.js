@@ -7,6 +7,15 @@ if (process.env.NODE_END !== "production") {
 }
 
 // using middleware
+<<<<<<< HEAD
+=======
+app.use(
+  cors({
+    origin: ["https://clever-sfogliatella-1a31e7.netlify.app"],
+    optionsSuccessStatus: 200,
+  })
+);
+>>>>>>> adef099e12f70d2e438886c403ca5601b7426216
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
