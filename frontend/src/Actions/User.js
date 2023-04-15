@@ -6,7 +6,7 @@ export const loginUser = (email, password) => async (dispatch) => {
       type: "LoginRequest",
     });
     const { data } = await axios.post(
-      "https://socialmedia-dnx3.onrender.com/api/v1/login",
+      "/api/v1/login",
       { email, password },
       {
         headers: {
@@ -32,7 +32,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: "LoadUserRequest",
     });
-    const { data } = await axios.get("https://socialmedia-dnx3.onrender.com/api/v1/me");
+    const { data } = await axios.get("/api/v1/me");
 
     dispatch({
       type: "LoadUserSuccess",
@@ -51,7 +51,7 @@ export const getFollowingPosts = () => async (dispatch) => {
     dispatch({
       type: "postofFollowingRequest",
     });
-    const { data } = await axios.get("https://socialmedia-dnx3.onrender.com/api/v1/posts");
+    const { data } = await axios.get("/api/v1/posts");
     dispatch({
       type: "postofFollowingSuccess",
       payload: data.posts,
@@ -69,7 +69,7 @@ export const getMyPosts = () => async (dispatch) => {
     dispatch({
       type: "myPostsRequest",
     });
-    const { data } = await axios.get("https://socialmedia-dnx3.onrender.com/api/v1/my/posts");
+    const { data } = await axios.get("/api/v1/my/posts");
     dispatch({
       type: "myPostsSuccess",
       payload: data.posts,
@@ -89,7 +89,7 @@ export const getAllUsers =
       dispatch({
         type: "allUserRequest",
       });
-      const { data } = await axios.get(`https://socialmedia-dnx3.onrender.com/api/v1/users?name=${name}`);
+      const { data } = await axios.get(`/api/v1/users?name=${name}`);
       dispatch({
         type: "allUserSuccess",
         payload: data.users,
@@ -108,7 +108,7 @@ export const logoutUser = () => async (dispatch) => {
       type: "LogoutUserRequest",
     });
 
-    await axios.get("https://socialmedia-dnx3.onrender.com/api/v1/logout");
+    await axios.get("/api/v1/logout");
 
     dispatch({
       type: "LogoutUserSuccess",
@@ -129,7 +129,7 @@ export const registerUser =
       });
 
       const { data } = await axios.post(
-        "https://socialmedia-dnx3.onrender.com/api/v1/register",
+        "/api/v1/register",
         { name, email, password, avatar },
         {
           headers: {
@@ -157,7 +157,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      "https://socialmedia-dnx3.onrender.com/api/v1/update/profile",
+      "/api/v1/update/profile",
       { name, email, avatar },
       {
         headers: {
@@ -186,7 +186,7 @@ export const updatePassword =
       });
 
       const { data } = await axios.put(
-        "https://socialmedia-dnx3.onrender.com/api/v1/update/password",
+        "/api/v1/update/password",
         { oldPassword, newPassword },
         {
           headers: {
@@ -213,7 +213,7 @@ export const deleteMyProfile = () => async (dispatch) => {
       type: "deleteProfileRequest",
     });
 
-    const { data } = await axios.delete("https://socialmedia-dnx3.onrender.com/api/v1/delete/me");
+    const { data } = await axios.delete("/api/v1/delete/me");
 
     dispatch({
       type: "deleteProfileSuccess",
@@ -234,7 +234,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "https://socialmedia-dnx3.onrender.com/api/v1/forgot/password",
+      "/api/v1/forgot/password",
       {
         email,
       },
@@ -264,7 +264,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      `https://socialmedia-dnx3.onrender.com/api/v1/password/reset/${token}`,
+      `/api/v1/password/reset/${token}`,
       {
         password,
       },
@@ -292,7 +292,7 @@ export const getUserPosts = (id) => async (dispatch) => {
     dispatch({
       type: "userPostsRequest",
     });
-    const { data } = await axios.get(`https://socialmedia-dnx3.onrender.com/api/v1/userposts/${id}`);
+    const { data } = await axios.get(`/api/v1/userposts/${id}`);
     dispatch({
       type: "userPostsSuccess",
       payload: data.posts,
@@ -310,7 +310,7 @@ export const getUserProfile = (id) => async (dispatch) => {
     dispatch({
       type: "userProfileRequest",
     });
-    const { data } = await axios.get(`https://socialmedia-dnx3.onrender.com/api/v1/user/${id}`);
+    const { data } = await axios.get(`/api/v1/user/${id}`);
     dispatch({
       type: "userProfileSuccess",
       payload: data.user,
@@ -328,7 +328,7 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
     dispatch({
       type: "followUserRequest",
     });
-    const { data } = await axios.get(`https://socialmedia-dnx3.onrender.com/api/v1/follow/${id}`);
+    const { data } = await axios.get(`/api/v1/follow/${id}`);
 
     dispatch({
       type: "followUserSuccess",
