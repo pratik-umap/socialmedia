@@ -1,5 +1,6 @@
 # socialmedia
-this is a social media app where user can create their account and also login.
+This is a social media app.
+where user can create their account and also login.
 user can create thier post also like comment on their post and other user post.
 There are multiple page in this project.
 1. Home Page | where user can see other user post also like and comment on post.
