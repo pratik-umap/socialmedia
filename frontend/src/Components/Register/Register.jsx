@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Register.css";
 import { Avatar, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../Actions/User";
-import { useEffect } from "react";
-
+import {toast} from "react-hot-toast"
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,6 +35,7 @@ function Register() {
   useEffect(() => {
     if (error) {
       // implement alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
   }, [dispatch, error]);

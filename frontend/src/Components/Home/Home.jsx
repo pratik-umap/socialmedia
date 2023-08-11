@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, getFollowingPosts } from "../../Actions/User";
 import Loader from "../Loader/Loader";
 import { Typography } from "@mui/material";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 function Home() {
   const dispatch = useDispatch();
@@ -27,18 +27,15 @@ function Home() {
   useEffect(() => {
     // need to implement
     if (error) {
-      // <Alert variant="error">{error}</Alert>;
-      toast.error({ error });
+      toast.error( error );
       dispatch({ type: "clearErrors" });
     }
     if (likeError) {
-      // <Alert variant="error">{likeError}</Alert>;
-      toast.error({ likeError });
+      toast.error( likeError );
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      // <Alert variant="success">{message}</Alert>;
-      toast.success({ message });
+      toast.success( message );
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, likeError, message]);

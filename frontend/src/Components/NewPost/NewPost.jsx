@@ -3,6 +3,7 @@ import "./NewPost.css";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewPost } from "../../Actions/Post";
+import {toast} from "react-hot-toast"
 import { loadUser } from "../../Actions/User";
 
 function NewPost() {
@@ -33,10 +34,12 @@ function NewPost() {
   useEffect(() => {
     if (error) {
       // implement alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
     if (message) {
       // implement alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, message]);

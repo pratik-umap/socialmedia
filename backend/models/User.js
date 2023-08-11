@@ -6,7 +6,7 @@ const crypto = require("crypto");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    krequired: [true, "Please enter a name"],
+    required: [true, "Please enter a name"],
   },
   avatar: {
     public_id: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Please enter a password"],
-    minlength: [6, "Password must bbe atleast 6 characters"],
+    minlength: [6, "Password must be atleast 6 characters"],
     select: false,
   },
   posts: [
@@ -72,4 +72,5 @@ userSchema.methods.getResetPasswordToken = function () {
   this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
   return resetToken;
 };
+
 module.exports = mongoose.model("User", userSchema);

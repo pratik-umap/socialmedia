@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Typography, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePassword } from "../../Actions/User";
+import {toast} from "react-hot-toast"
 
 const UpdatePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -20,11 +21,13 @@ const UpdatePassword = () => {
   useEffect(() => {
     if (error) {
       // implement alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
 
     if (message) {
       // implement alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, message]);

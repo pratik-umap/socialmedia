@@ -124,7 +124,7 @@ function Post({
         onClick={() => setLikesUser(!likesUser)}
         disabled={likes.length === 0 ? true : false}
       >
-        <Typography>{likes.length} likes</Typography>
+        <Typography style={{paddingLeft:"20px"}}>{likes.length} likes</Typography>
       </button>
 
       <div className="postFooter">

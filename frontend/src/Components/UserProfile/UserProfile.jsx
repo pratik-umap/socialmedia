@@ -10,6 +10,7 @@ import {
 import Loader from "../Loader/Loader";
 import Post from "../Post/Post";
 import User from "../User/User";
+import {toast} from "react-hot-toast"
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -63,20 +64,24 @@ const UserProfile = () => {
   useEffect(() => {
     if (error) {
       // alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
 
     if (followError) {
       // alert here
+      toast.error(followError)
       dispatch({ type: "clearErrors" });
     }
 
     if (userError) {
       // alert here
+      toast.error(userError)
       dispatch({ type: "clearErrors" });
     }
     if (message) {
       // alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [error, message, followError, userError, dispatch]);

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { resetPassword } from "../../Actions/User";
 import "./ResetPassword.css";
-
+import {toast} from "react-hot-toast"
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
   const dispatch = useDispatch();
@@ -19,10 +19,12 @@ function ResetPassword() {
   useEffect(() => {
     if (error) {
       // alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
     if (message) {
       // alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [error, dispatch, message]);

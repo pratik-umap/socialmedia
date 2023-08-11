@@ -5,7 +5,7 @@ import "./Account.css";
 import Loader from "../Loader/Loader";
 import Post from "../Post/Post";
 import { Avatar, Button, Dialog, Typography } from "@mui/material";
-import { toast } from "react-toastify";
+import {toast} from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import User from "../User/User";
@@ -25,7 +25,8 @@ function Account() {
 
   const logoutHandler = () => {
     dispatch(logoutUser());
-    // use alert here|
+    
+    toast.success("user logout successfully")
   };
 
   const deleteProfileHandler = async () => {
@@ -38,21 +39,18 @@ function Account() {
   }, [dispatch]);
 
   useEffect(() => {
-    // need to implement
+   
     if (error) {
-      // <Alert variant="error">{error}</Alert>;
-      toast.error({ error });
+      toast.error( error );
       dispatch({ type: "clearErrors" });
     }
 
     if (likeError) {
-      // <Alert variant="error">{likeError}</Alert>;
-      toast.error({ likeError });
+      toast.error( likeError );
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      // <Alert variant="success">{message}</Alert>;
-      toast.success({ message });
+      toast.success( message );
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, likeError, message]);
@@ -114,7 +112,7 @@ function Account() {
 
         <Link to="/update/profile">Edit Profile</Link>
         <Link to="/update/password">Change Password</Link>
-
+ 
         <Button
           variant="text"
           style={{ color: "red", margin: "2vmax" }}

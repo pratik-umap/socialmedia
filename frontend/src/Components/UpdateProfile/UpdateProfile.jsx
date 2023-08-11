@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./UpdateProfile.css";
 import { loadUser, updateProfile } from "../../Actions/User";
 import Loader from "../Loader/Loader";
+import {toast} from "react-hot-toast"
 
 const UpdateProfile = () => {
   const { loading, error, user } = useSelector((state) => state.user);
@@ -44,16 +45,19 @@ const UpdateProfile = () => {
   useEffect(() => {
     if (error) {
       // implement alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
 
     if (updateError) {
       // implement alert here
+      toast.error(updateError)
       dispatch({ type: "clearErrors" });
     }
 
     if (message) {
       // implement alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, updateError, message]);

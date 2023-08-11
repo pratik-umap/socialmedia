@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../Actions/User";
+import {toast} from "react-hot-toast"
 import "./ForgotPassword.css";
 
 function ForgotPassword() {
@@ -18,10 +19,12 @@ function ForgotPassword() {
   useEffect(() => {
     if (error) {
       // implement alert here
+      toast.error(error)
       dispatch({ type: "clearErrors" });
     }
     if (message) {
       // implement alert here
+      toast.success(message)
       dispatch({ type: "clearMessage" });
     }
   }, [error, dispatch, message]);

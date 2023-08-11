@@ -4,7 +4,8 @@ import { Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../Actions/User";
 import { useDispatch, useSelector } from "react-redux";
-import {toast ,ToastContainer} from "react-toastify"
+import { toast } from "react-hot-toast";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,11 +22,11 @@ function Login() {
   useEffect(() => {
     // need to implement
     if (error) {
-      toast.error({ error });
+      toast.error( error );
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      toast.success({ error });
+      toast.success( message );
       dispatch({ type: "clearMessage" });
     }
   }, [dispatch, error, message]);
@@ -67,7 +68,6 @@ function Login() {
           <Typography>New User?</Typography>
         </Link>
       </form>
-      <ToastContainer />
     </div>
   );
 }
