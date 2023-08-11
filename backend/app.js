@@ -15,12 +15,21 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 
 // static file
+<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, "/build")));
 
 // app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "/build/index.html"));
 // });
 
+=======
+app.use(express.static(path.join(__dirname,"/build")))
+
+app.get('/',function(req,res) {
+   res.sendFile(path.join(__dirname,"/build/index.html"))
+})
+
+>>>>>>> 7b2cf8fbcabd2876da36a7f20fa6f6b414e29c0f
 // importing routes
 const postRoute = require("./routes/post");
 const userRoute = require("./routes/user");
